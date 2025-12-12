@@ -72,3 +72,11 @@ on property:sys.boot_completed=1
     write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 2
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 0
+	
+on property:vendor.post_boot.parsed=1
+
+	# Battery Saving Tweak
+    write /proc/sys/kernel/perf_cpu_time_max_percent 5
+    write /proc/sys/vm/dirty_writeback_centisecs 3000
+    write /proc/sys/vm/dirty_ratio 30
+    write /proc/sys/vm/stat_interval 10
