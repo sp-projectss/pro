@@ -129,6 +129,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
+# Device-Features
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/device_features/onyx.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/onyx.xml
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
