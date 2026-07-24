@@ -43,17 +43,17 @@ on property:sys.boot_completed=1
     write /dev/cpuctl/top-app/cpu.shares 20480
 
     # Uclamp tunings
-    write /proc/sys/kernel/sched_util_clamp_min_rt_default 500
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 300
 
     #top-app
     write /dev/cpuctl/top-app/cpu.uclamp.max max
-    write /dev/cpuctl/top-app/cpu.uclamp.min 4
-    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/top-app/cpu.uclamp.min 20
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
 
     #foreground
     write /dev/cpuctl/foreground/cpu.uclamp.max max
-    write /dev/cpuctl/foreground/cpu.uclamp.min 4
-    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+    write /dev/cpuctl/foreground/cpu.uclamp.min 10
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
 
     #background
     write /dev/cpuctl/background/cpu.uclamp.max max
@@ -61,7 +61,7 @@ on property:sys.boot_completed=1
     write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
 
     #system-background
-    write /dev/cpuctl/system-background/cpu.uclamp.max 40
+    write /dev/cpuctl/system-background/cpu.uclamp.max 50
     write /dev/cpuctl/system-background/cpu.uclamp.min 0
     write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
 
