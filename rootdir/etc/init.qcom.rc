@@ -265,6 +265,16 @@ on boot
     chown system system /sys/bus/platform/devices/soc:xiaomi_fingerprint/intr2
     chmod 0666 /sys/bus/platform/devices/soc:xiaomi_fingerprint/intr2
 
+# Set USB product string based on region
+on boot && property:ro.boot.hwc=CN
+    setprop vendor.usb.product_string "REDMI Turbo 4 Pro Edition"
+
+on boot && property:ro.boot.hwc=GL
+    setprop vendor.usb.product_string "POCO F7"
+
+on boot && property:ro.boot.hwc=IN
+    setprop vendor.usb.product_string "POCO F7"    
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
